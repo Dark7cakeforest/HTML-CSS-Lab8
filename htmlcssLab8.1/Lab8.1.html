@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Napatsara Website</title>
+    <link rel="shortcut icon" type="image/x-icon" href="Whale.ico" />
+</head>
+<style>
+    body{
+        margin-top: 100px;
+        align-items: center;
+        justify-content: center; 
+        background: url('ocean-background-vector.jpg') no-repeat;
+    }
+    h1{
+        font-family: 'Brush Script MT', cursive;
+        font-size: 75px;
+        color:#2b0e88;
+        background-color: skyblue;
+        opacity: 0.7;
+    }
+    p{
+        font-family: 'Brush Script MT', cursive;
+        font-size: 20px;
+        color: antiquewhite;
+    }
+    main header{
+        font-family: 'Brush Script MT', cursive;
+        position: relative;
+        display: inline-block;
+        font-size: 25px;
+        color: blue;
+        background-color: skyblue;
+        padding: 0.20px 10px;
+        border-radius: 30px 30px 30px 30px;
+        margin-bottom: 20px;
+        border: 1px solid black;
+    }
+    button{
+        font-family: 'Brush Script MT', cursive;
+        display: block;
+        background-color: #f8ab63;
+        font-size: 20px;
+        margin-top: 20px;
+        color:#330000;
+        width: 100px;
+        height: 32px;
+        outline: none;
+        border-radius: 20px 20px 20px 20px;
+    }
+    form{
+        display: flex;
+        width: auto;
+        height: auto;
+        margin-top: 80px;
+        flex-direction: column;
+        gap: 20px;
+        font-size: 18px;
+        color:#0a4380;
+        padding: 20px;
+        border-radius: 10px;
+        border: 3px solid wheat;
+        background-color: transparent;
+        backdrop-filter: blur(30px);
+        position: relative;
+    }
+    .Login{
+        display: inline;
+    }
+    .Register{
+        display: none;
+    }
+    .Reset_Password{
+        display: none;
+    }
+    main{
+        font-family: 'Brush Script MT', cursive;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: auto;
+        width: 350px;
+    }
+    input[type="text"],
+    input[type="password"]{
+        font-family: 'Brush Script MT', cursive;
+        margin-bottom: 10px;
+        padding: 15px;
+        border: 2px solid whitesmoke;
+        width: 260px;
+        border-radius: 20px;
+        outline: none;
+        background-color: transparent;
+        color: aliceblue;
+    }
+    .from_wrapper{
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+    .forms {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 200px;
+    }
+    .toggle-form {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+    }
+    .toggle-form[data-target=".Register"] {
+        display: inline;
+    }
+</style>
+<body>
+    <center>
+<h1>Diving in the sea</h1>
+        <main>
+            <div class="forms">
+            <form class="Login" id="loginForm">
+                <div>
+                <header>
+                    <h3>Login</h3>
+                </header>
+                </div>
+            <div class="form_wrapper">
+                <input id="input" type="text" placeholder="Username" required>
+                <input id="password" type="password" placeholder="Password" required>
+            </div>
+                <a href="#" id="registerLink" class="toggle-form" data-target=".Register">Register</a>
+                <a href="#" id="Reset_PasswordLink" class="toggle-form" data-target=".Reset_Password">Forgot Password?</a>   
+                <button>Log In</button>
+            </form>
+            <form class="Register">
+                <div>
+                <header>
+                    <h3>Register</h3>
+                </header>
+                </div>
+            <div class="from_wrapper2">
+                <input id="input" type="text" placeholder="Username" required>
+                <input id="input" type="text" placeholder="Email" required>
+                <input id="password" type="password" placeholder="Password" required>
+            </div>
+            <a href="#" id="LoginLink" class="toggle-form" data-target=".Login">Go to Login</a>
+            <button>Sign Up</button>
+            </form>
+            <form class="Reset_Password">
+                <div>
+                <header>
+                    <h3>Reset Password</h3>
+                </header>
+                </div>
+            <div class="form_wrapper">
+                <input id="input" type="text" placeholder="Username" required>
+                <input id="input" type="text" placeholder="Email" required>
+            </div>
+            <a href="#" id="LoginLink" class="toggle-form" data-target=".Login">Go to Login</a>     
+                <button>Send</button>
+            </form>
+            </div>
+            <script>
+                document.querySelectorAll('.toggle-form').forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                event.preventDefault();
+                var targetClass = this.getAttribute('data-target');
+                var targetForm = document.querySelector(targetClass);
+                var allForms = document.querySelectorAll('form');
+                allForms.forEach(function(form) {
+                form.style.display = 'none';
+                });
+                targetForm.style.display = 'block';
+        });
+    });
+            </script>
+        </main>
+    </center>
+</body>
+</html>
